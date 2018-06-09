@@ -6,6 +6,24 @@ let unnecessaryWords = ['extremely', 'literally', 'actually'];
 let storyWords = story.split(' ');
 console.log(storyWords.length);
 
-let betterWords = storyWords.filter( function(currentWord){
+let betterWords = storyWords.filter(
+  function(currentWord){
   return !unnecessaryWords.includes(currentWord)
 });
+console.log('The story without the unnecessary words has a word count of '+ betterWords.length);
+
+let totalOverusedWords = storyWords.filter(
+  function(story){
+  return (story === overusedWords[0] || story === overusedWords[1] || story === overusedWords[2])
+});
+
+console.log('The story contains a total of '+ totalOverusedWords.length + ' overused words');
+
+let sentences = 0;
+betterWords.forEach(word => {
+  if (word[word.length-1] === '.' || word[word.length-1] === '!') {
+    sentences+=1;
+  }
+});
+console.log(betterWords);
+console.log(sentences);
